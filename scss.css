@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'digi';
+  src: url("http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF"); }
+body {
+  padding: 0;
+  margin: 0 auto;
+  background-color: black;
+  color: whitesmoke; }
+
+.clock {
+  text-align: center;
+  background-color: black;
+  color: #36ff66;
+  font-family: "digi";
+  font-size: 100px; }
+
+.t1 {
+  background-color: black;
+  border-radius: 8px;
+  border-color: red; }

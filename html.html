@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Metronome</title>
+<head lang="en">
     <meta charset="UTF-8">
+    <title>Metronome</title>
+    <link type="text/css" rel="stylesheet" href="css/scss.css">
 </head>
 <body>
 
-<button class="add">
-    Start
-</button>
+<main class="buttons">
+    <script type="text/template" id="mainView">
+        <button class="add">
+        Start
+        </button>
 
-<button class="stop">
-    Stop
-</button>
+        <button class="stop">
+            Stop
+        </button>
 
-<form>
-    <label>
-        <input class="txt1" type="number" value="120" min="40" max="220">
-    </label>
-</form>
-
+        <form class="form1">
+            <label>
+                <input class="txt1" type="number" value="120" min="40" max="220">
+            </label>
+        </form>
+    </script>
+</main>
 <audio src="click.mp3" class="audio"></audio>
-<script src="js.js"></script>
 
+<script src="app/external/jquery-2.1.1.min.js"></script>
+<script src="app/external/underscore-min.js"></script>
+<script src="app/external/backbone-min.js"></script>
+<script src="app/views/app.js"></script>
+<script>
 
+</script>
 </body>
 </html>

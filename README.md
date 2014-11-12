@@ -1,4 +1,4 @@
 Metronome
 =========
 
-Html metronome, used Backbone with Coffescript and html5 audio api
+HTML5 metronome, used Backbone with Coffescript and HTML5 audio api

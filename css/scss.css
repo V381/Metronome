@@ -1,62 +1,117 @@
-input {
-  border: 2px solid deepskyblue;
-  border-radius: 1px;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin: 0 0 10px 0;
-  width: 233px;
-  position: relative; }
+div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+header {
+  background: #191919;
+  padding: 20px;
+  box-shadow: 2px 2px 2px #464646; }
+  header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #ffffff; }
+    header h1:first-letter {
+      color: red; }
 
 .form1 {
   text-align: center; }
 
-.buttons {
-  text-align: center; }
-
-button {
-  margin-top: 150px;
-  -moz-box-shadow: inset 0px 0px 0px -16px #cae3fc;
-  -webkit-box-shadow: inset 0px 0px 0px -16px #cae3fc;
-  box-shadow: inset 0px 0px 0px -16px #cae3fc;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee));
-  background: -moz-linear-gradient(center top, #79bbff 5%, #4197ee 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
-  background-color: #79bbff;
-  -webkit-border-top-left-radius: 0px;
-  -moz-border-radius-topleft: 0px;
-  border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -moz-border-radius-topright: 0px;
-  border-top-right-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  -moz-border-radius-bottomright: 0px;
-  border-bottom-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  border-bottom-left-radius: 0px;
-  text-indent: 1px;
-  border: 4px solid #469df5;
-  display: inline-block;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 19px;
-  font-weight: bold;
-  font-style: normal;
-  height: 65px;
-  line-height: 55px;
-  width: 131px;
-  text-decoration: none;
+.container {
   text-align: center;
-  text-shadow: 1px 2px 0px #287ace; }
+  margin: 0 auto;
+  width: 100%; }
+  .container .commands button {
+    box-sizing: border-box;
+    width: 100%;
+    background: white;
+    color: black;
+    font-size: 1em;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #191919;
+    padding: 20px; }
+    .container .commands button:hover {
+      background-color: #36328a;
+      color: white; }
+  .container form input {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #191919;
+    padding: 20px; }
+    .container form input:hover {
+      background-color: #36328a;
+      color: white; }
 
-.button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff));
-  background: -moz-linear-gradient(center top, #4197ee 5%, #79bbff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
-  background-color: #4197ee; }
+.beat {
+  width: 50%;
+  background-color: white;
+  font-size: 1em;
+  transition: 0.3s ease-in-out;
+  border: 1px solid #191919;
+  padding: 20px; }
+  .beat:hover {
+    background-color: #36328a;
+    color: white; }
 
-.button:active {
-  position: relative;
-  top: 1px; }
+.decrement {
+  width: 25%;
+  float: left;
+  background-color: white;
+  font-size: 1em;
+  transition: 0.3s ease-in-out;
+  border: 1px solid #191919;
+  padding: 20px; }
+  .decrement:hover {
+    background-color: #36328a;
+    color: white; }
+
+.increment {
+  width: 25%;
+  float: right;
+  background-color: white;
+  font-size: 1em;
+  transition: 0.3s ease-in-out;
+  border: 1px solid #191919;
+  padding: 20px; }
+  .increment:hover {
+    background-color: #36328a;
+    color: white; }

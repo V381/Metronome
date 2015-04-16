@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title>Metronome</title>
     <link type="text/css" rel="stylesheet" href="css/scss.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="files/favicon.ico"/>
 </head>
 <body>
 
-<main class="buttons">
+<header>
+    <h1>Metronome</h1>
+</header>
+
+<main class="container">
     <script type="text/template" id="mainView">
+
+      <section class="commands">
         <button class="add">
         Start
         </button>
@@ -16,22 +24,26 @@
         <button class="stop">
             Stop
         </button>
-
-        <form class="form1">
+      </section>
+      <form class="form1">
             <label>
-                <input class="txt1" type="number" value="120" min="40" max="220">
+                <input class="txt1" type="number" value="100" min="40" max="220" placeholder="BMP">
             </label>
         </form>
+
+        <section class="beats">
+            <button class="beat">Beat: 1</button>
+            <button class="increment">+</button>
+            <button class="decrement">-</button>
+        </section>
+
     </script>
 </main>
-<audio src="click.mp3" class="audio"></audio>
+<audio src="files/click.mp3" class="audio"></audio>
 
 <script src="app/external/jquery-2.1.1.min.js"></script>
 <script src="app/external/underscore-min.js"></script>
 <script src="app/external/backbone-min.js"></script>
 <script src="app/views/app.js"></script>
-<script>
-
-</script>
 </body>
 </html>

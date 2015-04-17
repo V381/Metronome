@@ -33,7 +33,8 @@
       "click .stop": "stop",
       "click .beat": "numofBeats",
       "click .increment": "increment",
-      "click .decrement": "decrement"
+      "click .decrement": "decrement",
+      "submit form": "preventDef"
     };
 
     Buttons.prototype.initialize = function() {
@@ -43,8 +44,13 @@
       this.beat = document.querySelector(".beat");
       this.counter = 1;
       this.cox = 1;
+      this.numInput = $("input[type='number']");
       this.beatAudio = document.createElement("audio");
       return this.beatAudio.src = "files/beat.wav";
+    };
+
+    Buttons.prototype.preventDef = function(e) {
+      return e.preventDefault();
     };
 
     Buttons.prototype.play = function(e) {

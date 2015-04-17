@@ -16,6 +16,7 @@ class Buttons extends Backbone.View
     "click .beat" : "numofBeats"
     "click .increment" : "increment"
     "click .decrement" : "decrement"
+    "submit form" : "preventDef"
 
   initialize : () ->
     @render()
@@ -24,8 +25,12 @@ class Buttons extends Backbone.View
     @beat = document.querySelector(".beat");
     @counter = 1;
     @cox = 1;
+    @numInput = $("input[type='number']");
     @beatAudio = document.createElement("audio")
     @beatAudio.src = "files/beat.wav";
+
+  preventDef : (e) ->
+    e.preventDefault();
 
   play : (e) =>
     if @counter is 1 then $(".increment").click();

@@ -1,49 +1,217 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Metronome</title>
-    <link type="text/css" rel="stylesheet" href="css/scss.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="files/favicon.ico"/>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="css/scss.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  </head>
+  <body class="min-h-screen">
+    <div id="beatFlash" class="beat-flash"></div>
 
-<header>
-    <h1>Metronome</h1>
-</header>
+    <header>
+      <h1>Metronome</h1>
+      <p class="text-center text-sm text-slate-400 mt-2 italic">
+        Created with <span class="text-red-500">❤</span> for musicians by
+        musician |
+        <a href="https://www.github.com/V381" class="hover:pointer"
+          >Pavle Paunovic</a
+        >
+      </p>
+    </header>
 
-<main class="container">
-    <script type="text/template" id="mainView">
-
-      <section class="commands">
-        <button class="add">
-        Start
-        </button>
-
-        <button class="stop">
+    <main class="container mx-auto px-4 py-12 max-w-md relative">
+      <div class="metronome-controls glass-effect rounded-2xl shadow-lg p-8">
+        <section class="commands space-y-4">
+          <button
+            class="add w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/20"
+          >
+            Start
+          </button>
+          <button
+            class="stop w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-500/20"
+          >
             Stop
-        </button>
-      </section>
-      <form class="form1">
-            <label>
-                <input class="txt1" type="number" value="100" min="40" max="220" placeholder="BMP">
-            </label>
-        </form>
-
-        <section class="beats">
-            <button class="beat">Beat: 1</button>
-            <button class="increment">+</button>
-            <button class="decrement">-</button>
+          </button>
         </section>
 
-    </script>
-</main>
-<audio src="files/click.mp3" class="audio"></audio>
+        <form class="form1 my-8">
+          <label class="block">
+            <input
+              class="txt1 w-full text-center text-2xl font-bold py-3 px-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300"
+              type="number"
+              value="100"
+              min="40"
+              max="400"
+              placeholder="BPM"
+            />
+          </label>
+        </form>
+        <section class="subdivision my-6">
+          <label
+            class="block text-slate-300 mb-3 text-center text-sm uppercase tracking-wide"
+          >
+            Subdivision
+          </label>
+          <div class="grid grid-cols-4 gap-2 mb-2">
+            <button
+              class="subdivision-btn active bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="1"
+            >
+              1/4
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="2"
+            >
+              1/8
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="3"
+            >
+              1/8T
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="4"
+            >
+              1/16
+            </button>
+          </div>
+          <div class="grid grid-cols-4 gap-2">
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="5"
+            >
+              1/16T
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="6"
+            >
+              1/32
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="7"
+            >
+              1/32T
+            </button>
+            <button
+              class="subdivision-btn bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2 px-3 rounded-lg transition-all duration-300 shadow-lg text-sm"
+              data-value="8"
+            >
+              Swing
+            </button>
+          </div>
+        </section>
 
-<script src="app/external/jquery-2.1.1.min.js"></script>
-<script src="app/external/underscore-min.js"></script>
-<script src="app/external/backbone-min.js"></script>
-<script src="app/views/app.js"></script>
-</body>
+        <section class="beats flex items-center gap-3">
+          <button
+            class="beat flex-grow bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg"
+          >
+            Beat: 1
+          </button>
+          <button
+            class="increment bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/20"
+          >
+            +
+          </button>
+          <button
+            class="decrement bg-amber-600 hover:bg-amber-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-amber-500/20"
+          >
+            -
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <section
+      class="instructions mt-12 px-4 py-6 glass-effect rounded-xl text-slate-300"
+    >
+      <h2 class="text-xl font-bold mb-4 text-blue-400">
+        How to Use the Metronome
+      </h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-blue-300 mb-2">Basic Controls</h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Click "Start" to begin the metronome</li>
+            <li>Use the number input to set your desired BPM (40-220)</li>
+            <li>
+              The "+" and "-" buttons adjust the number of beats per measure
+            </li>
+            <li>Click "Stop" to halt the metronome</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-blue-300 mb-2">
+            Understanding Subdivisions
+          </h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>
+              <strong>1/4 (Quarter Notes)</strong>: Basic beat, one click per
+              beat
+            </li>
+            <li><strong>1/8 (Eighth Notes)</strong>: Two clicks per beat</li>
+            <li>
+              <strong>1/8T (Eighth Triplets)</strong>: Three clicks per beat
+            </li>
+            <li>
+              <strong>1/16 (Sixteenth Notes)</strong>: Four clicks per beat
+            </li>
+            <li>
+              <strong>1/16T (Sixteenth Triplets)</strong>: Six clicks per beat
+            </li>
+            <li>
+              <strong>1/32 (Thirty-Second Notes)</strong>: Eight clicks per beat
+            </li>
+            <li>
+              <strong>1/32T (Thirty-Second Triplets)</strong>: Twelve clicks per
+              beat
+            </li>
+            <li>
+              <strong>Swing</strong>: Eighth notes with swing feel (delayed
+              second eighth note)
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-blue-300 mb-2">Visual Feedback</h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Main beats are indicated by stronger flashes and sounds</li>
+            <li>Subdivision beats have lighter flashes and softer sounds</li>
+            <li>The beat counter shows your current position in the measure</li>
+            <li>Different colors indicate different beats in the measure</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-blue-300 mb-2">Tips</h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>
+              Start with slower tempos when practicing complex subdivisions
+            </li>
+            <li>Use visual feedback to help internalize the rhythm</li>
+            <li>
+              Practice switching between subdivisions to build rhythmic
+              flexibility
+            </li>
+            <li>For swing feel, focus on the uneven spacing between beats</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <audio src="files/click.mp3" class="audio"></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

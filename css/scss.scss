@@ -2,75 +2,76 @@
 @import "reset";
 @include meyer-reset;
 
-$defaultBg : #191919;
-$buttonBg : #ffffff;
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
 
-@mixin sharedProperties(){
-  font-size: 1em;
-  transition: 0.3s ease-in-out;
-  border: 1px solid #191919;
+.beat-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+}
+
+.glass-effect {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input[type="number"] {
+  background: rgba(15, 23, 42, 0.7);
+  color: #f8fafc;
+}
+
+.color-1 {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+.color-2 {
+  background-color: rgba(99, 102, 241, 0.2);
+}
+.color-3 {
+  background-color: rgba(139, 92, 246, 0.2);
+}
+.color-4 {
+  background-color: rgba(168, 85, 247, 0.2);
+}
+.color-5 {
+  background-color: rgba(217, 70, 239, 0.2);
+}
+header {
+  background: #191919;
   padding: 20px;
-  &:hover{
-    background-color: #36328a;
-    color: white;
-  }
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #334155;
 }
 
-header{
-  background: $defaultBg;
-  padding: 20px;
-  box-shadow: 2px 2px 2px #464646;
-  h1{
-    font-size: 2.5em;
-    text-align: center;
-    color: #ffffff;
-    &:first-letter{
-      color: red;
-    }
-  }
-}
-
-
-.form1{
+header h1 {
+  font-size: 2.5em;
   text-align: center;
+  color: #F8FAFC;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
 }
-.container{
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-  .commands{
-    button{
-      box-sizing: border-box;
-      width: 100%;
-      //background-color: #2c2c2c;
-      background: white;
-      color: black;
-      @include sharedProperties();
-    }
-  }
-  form{
-    input{
-      box-sizing: border-box;
-      width: 100%;
-      text-align: center;
-     @include sharedProperties();
-  }
-}}
 
-.beat{
-  width: 50%;
-  background-color: $buttonBg;
-  @include sharedProperties();
+header h1::first-letter {
+  color: #ff0000;
+  text-transform: uppercase;
 }
-.decrement{
-  width: 25%;
-  float: left;
-  background-color: $buttonBg;
-  @include sharedProperties();
+
+header p {
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.3s ease;
 }
-.increment{
-  width: 25%;
-  float: right;
-  background-color: $buttonBg;
-  @include sharedProperties();
+
+header p:hover {
+  opacity: 0.8;
 }
